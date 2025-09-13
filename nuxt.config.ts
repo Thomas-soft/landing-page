@@ -8,7 +8,7 @@ export default defineNuxtConfig({
   target: 'static',
   app: { head: { htmlAttrs: { lang: 'fr' } } },
 
-  nitro: { preset: 'cloudflare_pages' }, // <-- changer ici
+  nitro: { preset: 'cloudflare_module' }, // <-- changer ici
 
   css: ['@/assets/css/main.scss'],
   routeRules: {
