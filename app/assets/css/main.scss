@@ -1,0 +1,224 @@
+// ===============================
+// Base helpers / mixins
+// ===============================
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Visually hidden (pour lecteurs d’écran) */
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+/* Skip link pour bypass le header */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  padding: 0.75rem 1rem;
+  background: #fff;
+  color: #111;
+  border-radius: .5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,.15);
+  z-index: 1000;
+}
+.skip-link:focus { top: .5rem; }
+
+// ===============================
+// Theme variables
+// ===============================
+$color-bg: #1e144f;
+$color-accent: #9f60ff;
+$color-white: #ffffff;
+$color-text: #e0d9ff;
+$color-dark: #0c062b;
+$color-muted: #cbb9ff;
+$color-link: #caa7ff; /* lisible sur fond sombre */
+$color-link-visited: #b98cff;
+
+$spacing: 1rem;
+$radius: 1.5rem;
+
+// ===============================
+// Global reset (light touch)
+// ===============================
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html { font-size: 100%; scroll-behavior: smooth; }
+
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+  font-weight: 400;
+  font-size: var(--fs-body, 1rem);
+  line-height: var(--lh-body, 1.6);
+  background-color: $color-bg;
+  color: $color-text;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  padding: 0 20px;
+}
+
+/* ✅ On NE SUPPRIME PAS les puces globalement (SEO/UX)
+   Pour enlever le style, utiliser .list-unstyled ci-dessous */
+ul, ol { padding-left: 1.25rem; margin: 0 0 1rem; }
+.list-unstyled { list-style: none; padding-left: 0; margin: 0; }
+
+/* Paragraphes & conteneur de texte lisible (60–75ch) */
+p { margin: 0 0 1rem; max-width: 72ch; }
+.lead { font-size: clamp(1.125rem, 0.8vw + 1rem, 1.375rem); line-height: 1.5; }
+
+/* Titres (contraste fort sur fond sombre) */
+h1, h2, h3, h4, h5, h6 {
+  color: #f6f4ff;
+  letter-spacing: -0.01em;
+  margin: 0 0 .5rem;
+}
+h1 { font-size: clamp(2rem, 2.8vw + 1.2rem, 3rem); line-height: 1.15; }
+h2 { font-size: clamp(1.625rem, 1.6vw + 1.1rem, 2.25rem); line-height: 1.25; }
+h3 { font-size: clamp(1.375rem, 1.2vw + 1rem, 1.75rem); line-height: 1.25; }
+h4 { font-size: clamp(1.125rem, .6vw + .95rem, 1.375rem); }
+h5 { font-size: clamp(1rem, .4vw + .9rem, 1.125rem); }
+h6 { font-size: clamp(.9375rem, .3vw + .85rem, 1rem); text-transform: uppercase; letter-spacing: .08em; }
+
+h1 + p, h2 + p, h3 + p { margin-top: .25rem; }
+section + section { margin-top: clamp(2rem, 3vw, 3.5rem); }
+
+/* Ancrages vers sections (meilleur défilement sous header sticky) */
+:target, h2[id], h3[id] { scroll-margin-top: 96px; }
+
+/* Liens (états complets, important pour accessibilité/SEO) */
+a {
+  color: $color-link;
+  text-underline-offset: .15em;
+  text-decoration-thickness: .08em;
+}
+a:hover { text-decoration: underline; }
+a:visited { color: $color-link-visited; }
+a:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+  border-radius: .25rem;
+}
+
+/* Séparateur de section (rgba corrigé) */
+.section-separator {
+  padding-bottom: 5rem;
+  border-bottom: 1px dashed rgba(60, 66, 100, 0.35); /* fix: pas d’hex 8 et pas d’arguments nommés */
+}
+
+.prose {
+  padding-top: 4rem;
+}
+
+/* ===============================
+// Buttons (sans transition: all)
+=============================== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: $radius;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 1.2;
+  border: 0;
+  transition: background-color .2s ease, color .2s ease, box-shadow .2s ease, transform .2s ease;
+}
+.btn:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 2px;
+}
+
+.btn-primary {
+  @extend .btn;
+  background-color: $color-accent;
+  color: $color-white;
+  box-shadow: 0 0 0 rgba(0,0,0,0);
+
+  &:hover { box-shadow: 0 6px 24px rgba(159, 96, 255, 0.35); transform: translateY(-1px); }
+  &:active { transform: translateY(0); box-shadow: 0 3px 18px rgba(159, 96, 255, 0.25); }
+}
+
+.btn-secondary {
+  @extend .btn;
+  border: 2px solid $color-accent;
+  color: $color-accent;
+  background: transparent;
+
+  &:hover { background: $color-accent; color: #fff; }
+}
+
+/* ===============================
+// Forms accessibles
+=============================== */
+input, select, textarea {
+  font: inherit;
+  color: $color-dark;
+  background: #fff;
+  border: 1.5px solid #d9d6ff;
+  border-radius: .75rem;
+  padding: .7rem .9rem;
+  width: 100%;
+  line-height: 1.35;
+  display: block;
+}
+label { display: block; margin: 0 0 .5rem; font-weight: 600; color: #efeaff; }
+::placeholder { color: #8f88b9; opacity: 1; }
+input:focus-visible, select:focus-visible, textarea:focus-visible {
+  outline: 3px solid #fff; outline-offset: 2px; border-color: #fff;
+}
+fieldset { border: 0; padding: 0; margin: 0 0 1rem; }
+.form-row { margin-bottom: 1rem; }
+
+/* ===============================
+// Media / images => anti-CLS
+=============================== */
+img, svg, video { display: block; max-width: 100%; height: auto; }
+.img-cover { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: $radius; }
+
+/* ===============================
+// Motion preferences
+=============================== */
+@media (prefers-reduced-motion: reduce) {
+  * { scroll-behavior: auto !important; }
+  .btn, a { transition: none !important; }
+  .btn-primary, .btn-secondary { transform: none !important; }
+}
+
+/* ===============================
+// Code / inline
+=============================== */
+code, kbd, samp, pre {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: .95em;
+}
+
+/* ===============================
+// Utilities
+=============================== */
+.container {
+  max-width: 72rem; /* ~1152px */
+  margin: 0 auto;
+  padding-inline: 1rem;
+}
+.prose { max-width: 72ch; }
+.center { @include flex-center; }
+.text-muted { color: $color-muted; }
