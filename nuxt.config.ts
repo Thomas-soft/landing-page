@@ -1,19 +1,15 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
 
-  modules: [
-    '@nuxt/image',
-    '@nuxt/icon',
-    '@nuxt/fonts',
-    '@nuxt/content'
-  ],
+  modules: ['@nuxt/image', '@nuxt/icon', '@nuxt/fonts', '@nuxt/content', '@nuxthub/core'],
 
   ssr: true,
   target: 'static',
   app: { head: { htmlAttrs: { lang: 'fr' } } },
-  nitro: { preset: 'static' }, // SSG via `nuxi generate`
+
+  nitro: { preset: 'cloudflare_pages' }, // <-- changer ici
+
   css: ['@/assets/css/main.scss'],
   routeRules: {
     '/**': { prerender: true },
