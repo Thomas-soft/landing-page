@@ -34,7 +34,7 @@ const vIntersect = {
     v-intersect="{ threshold: 0.15, once: true }"
   >
     <header class="section-header" data-reveal-b>
-      <h2 id="benefits-title">Les bénéfices d’un agent IA</h2>
+      <h2 id="benefits-title">Les bénéfices d'un agent IA</h2>
     </header>
 
     <div class="grid">

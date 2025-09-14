@@ -35,10 +35,10 @@ const vIntersect = {
     <h2 id="faq-title" data-reveal-faq>FAQ</h2>
 
     <div class="container" data-reveal-faq>
-      <details data-reveal-faq><summary>Puis-je commencer petit ?</summary><p>Oui ! Notre agent IA est évolutif et peut s'adapter à vos besoins. Vous pouvez commencez petit et étendre les fonctionnalités au fur et à mesure.</p></details>
+      <details data-reveal-faq><summary>Puis-je commencer petit ?</summary><p>Oui ! Mon agent IA est évolutif et peut s'adapter à vos besoins. Vous pouvez commencez petit et étendre les fonctionnalités au fur et à mesure.</p></details>
       <details data-reveal-faq><summary>Quels sont les délais de réalisation ?</summary><p>4 à 16 jours selon le pack choisi.</p></details>
       <details data-reveal-faq><summary>Quelles intégrations sont possibles ?</summary><p>Shopify, WooCommerce, WhatsApp, Instagram, Messenger, Telegram, Calendly, Cal, Google Calendar, Notion, Google Sheets, HubSpot, APIs.</p></details>
-      <details data-reveal-faq><summary>Quelles langues ?</summary><p>Notre agent IA est disponible en plusieurs langues (FR/EN sur demande).</p></details>
+      <details data-reveal-faq><summary>Quelles langues ?</summary><p>Mon agent IA est disponible en plusieurs langues (FR/EN sur demande).</p></details>
       <details data-reveal-faq><summary>Proposez-vous une maintenance & amélioration continue ?</summary><p>Oui, c'est l'objet d'un accompagnement personnalisé dont le tarif dépend de la portée du projet.</p></details>
       <details data-reveal-faq><summary>Quelles sont les limites de l'IA ?</summary><p>Cas complexes et très rares redirigés vers un humain - décisions sensibles non automatisées.</p></details>
       <details data-reveal-faq><summary>Aurais-je accès à mon système automatisé ?</summary><p>Oui, vous avez l'accès et le contrôle total. Vous êtes propriétaire du code n8n, prompts et connecteurs.</p></details>

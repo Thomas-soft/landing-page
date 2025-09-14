@@ -32,10 +32,11 @@ const vIntersect = {
     class="section-separator reveal-contact"
     v-intersect="{ threshold: 0.15, once: true }"
   >
-    <h2 id="contact-title" data-reveal-contact>Discutez avec moi</h2>
-    <p data-reveal-contact>Parlez-moi de votre projet - Réponse en &lt;48h. Audit gratuit.</p>
+    <h2 id="contact-title" data-reveal-contact>Envoyez moi un message</h2>
+    <p data-reveal-contact>Parlez-moi de votre projet - Réponse en moins de 48h + Audit gratuit.</p>
+     <p style="color: red;" data-reveal-contact>Attention : Le site est actuellement en maintenance et donc le formulaire ne fonctionne pas, veuillez m'envoyer directement un email à <a href="mailto:tofil.tomek@gmail.com">tofil.tomek@gmail.com</a>.</p>
 
-    <form method="post" action="{form_endpoint_placeholder}" novalidate aria-describedby="privacy-note" data-reveal-contact>
+    <form method="post" action="" novalidate aria-describedby="privacy-note" data-reveal-contact>
       <div class="grid">
         <label data-reveal-contact>Nom* <input name="lastName" required autocomplete="family-name"></label>
         <label data-reveal-contact>Prénom* <input name="firstName" required autocomplete="given-name"></label>

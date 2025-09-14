@@ -42,8 +42,8 @@ useSeoMeta({
     <section>
       <h2>Propriété intellectuelle</h2>
       <p>
-        L’ensemble des contenus (textes, images, code, graphismes) présents sur ce site
-        sont la propriété exclusive de {freelance_nom}, sauf mention contraire. 
+        L'ensemble des contenus (textes, images, code, graphismes) présents sur ce site
+        sont la propriété exclusive de Thomas Tofil, sauf mention contraire. 
         Toute reproduction non autorisée est interdite.
       </p>
     </section>
@@ -51,8 +51,8 @@ useSeoMeta({
     <section>
       <h2>Limitations de responsabilité</h2>
       <p>
-        {freelance_nom} ne saurait être tenu responsable de dommages directs ou indirects
-        liés à l’utilisation du site ou aux informations fournies.
+        Thomas Tofil ne saurait être tenu responsable de dommages directs ou indirects
+        liés à l'utilisation du site ou aux informations fournies.
       </p>
     </section>
   </main>

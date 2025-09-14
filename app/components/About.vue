@@ -44,7 +44,7 @@ const vIntersect = {
       <!-- 📸 Photo -->
       <div class="img-contain" data-reveal-about="img">
         <img 
-          src="/me.webp" 
+          src="/mee.webp" 
           alt="Photo de Thomas Tofil, freelance en automatisation n8n et agents IA/chatbots" 
           class="about-photo" 
           width="auto" height="600"
@@ -130,26 +130,21 @@ const vIntersect = {
   flex-direction: column;
 
   .about-content {
-    max-width: 900px;
+    max-width: 1400px;
     width: 90%;
     margin-top: 20px;
     @include flex-center;
-    gap: 2rem;
     flex-direction: row;
-    align-items: flex-end;
-    position: relative;
+    align-items: flex-start;
 
     .img-contain {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: auto;
-      height: 500px;
-      z-index: -1;
+      width: 100%;
+      max-width: 600px;
+      max-height: 700px;
 
       /* ✅ Opacité qui diminue de gauche ➜ droite
          - besoin du prefix pour Safari */
-      overflow: hidden;
+      // overflow: hidden;
       -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 70%);
               mask-image: linear-gradient(to left, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 70%);
 
@@ -157,14 +152,12 @@ const vIntersect = {
         border-radius: 4rem;
         width: 100%;
         height: 100%;
-        object-fit: cover;
-        /* Optionnel: un léger flou de fond si tu veux un effet “backdrop” */
-        /* filter: saturate(0.95) brightness(0.98); */
       }
     }
 
     .about-text {
-      margin-left: 220px;
+      width: 100%;
+      max-width: 600px;
       text-align: justify;
 
       h4 { margin-bottom: 1rem; }
@@ -174,7 +167,7 @@ const vIntersect = {
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1200px) {
   #about {
     .about-content {
       width: 100%;
@@ -203,6 +196,7 @@ const vIntersect = {
       }
 
       .about-text {
+        max-width: none;
         margin: 0;
         width: 100%;
         text-align: left;       /* Texte lisible */
