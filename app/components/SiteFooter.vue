@@ -29,6 +29,7 @@ const isActive = (path: string) => route.path === path ? 'page' : undefined
         <!-- Liens externes : nouvelle fenêtre + sécurité -->
         <!-- <li><a href="{google_url_placeholder}"   target="_blank" rel="me noopener noreferrer" class="btn">Fiche Google</a></li> -->
         <li><a href="tel:+33623034405" class="btn">Tel: 06 23 03 44 05</a></li>
+        <li><a href="mailto:contact@thomastofil.fr" class="btn">Email: contact@thomastofil.fr</a></li>
       </ul>
     </nav>
 

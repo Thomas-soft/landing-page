@@ -18,7 +18,7 @@ useSeoMeta({
         Nom : Thomas Tofil<br>
         Statut : Entrepreneur individuel<br>
         Adresse : 76600 Le Havre, France<br>
-        Email : <a href="mailto:tofil.tomek@gmail.com">tofil.tomek@gmail.com</a><br>
+        Email : <a href="mailto:contact@thomastofil.fr">contact@thomastofil.fr</a><br>
         Téléphone : <a href="tel:0623034405">0623034405</a><br>
         SIRET : 944 472 778 00025<br>
         <!-- TVA intracommunautaire : <br> -->

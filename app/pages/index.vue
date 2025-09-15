@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const siteUrl = 'https://thomas-tofil.fr/'
+const siteUrl = 'https://thomastofil.fr/'
 
 useSeoMeta({
   title: 'Agent IA & automatisation n8n pour e-commerce & salons — Le Havre',
@@ -48,7 +48,7 @@ useHead({
           "@type": "Person",
           "name": "Thomas Tofil",
           "jobTitle": "Agent IA & Automatisation n8n",
-          "url": "https://thomas-tofil.fr/",
+          "url": "https://thomastofil.fr/",
           "sameAs": [
             "https://linkedin.com/in/thomas-tofil-619653296",
             "https://comeup.com/fr/@thomas-automation",

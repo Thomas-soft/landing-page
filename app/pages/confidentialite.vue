@@ -56,7 +56,7 @@ useSeoMeta({
       <p>
         Conformément au RGPD, vous disposez d'un droit d'accès, de rectification et de suppression
         de vos données. Vous pouvez exercer ces droits en écrivant à :
-        <a href="mailto:tofil.tomek@gmail.com">tofil.tomek@gmail.com</a>.
+        <a href="mailto:contact@thomastofil.fr">contact@thomastofil.fr</a>.
       </p>
     </section>
 
@@ -64,7 +64,7 @@ useSeoMeta({
       <h2>Contact</h2>
       <p>
         Pour toute question concernant la confidentialité de vos données, vous pouvez nous écrire à :
-        <a href="mailto:tofil.tomek@gmail.com">tofil.tomek@gmail.com</a>
+        <a href="mailto:contact@thomastofil.fr">contact@thomastofil.fr</a>
       </p>
     </section>
   </main>
