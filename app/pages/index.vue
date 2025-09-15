@@ -9,13 +9,14 @@ useSeoMeta({
   ogDescription: 'Support, ventes et suivi automatisés sur WhatsApp, Telegram, Instagram, Messenger, Web et Email.',
   ogType: 'website',
   ogUrl: siteUrl,
-  // ogImage: '{og_image_url}',
+  ogImage: siteUrl + 'mee.webp',
   // twitterCard: 'summary_large_image',
-  // twitterImage: '{og_image_url}'
+  twitterImage: siteUrl + 'mee.webp'
 })
 
 useHead({
   link: [{ rel: 'canonical', href: siteUrl }],
+  htmlAttrs: { lang: 'fr' },
   script: [
     {
       key: 'ld-json-home',
@@ -27,7 +28,7 @@ useHead({
           "@id": siteUrl + "#serviceprovider",
           "name": "Thomas Tofil — Agent IA & automatisation n8n",
           "url": siteUrl,
-          // "image": "{og_image_url}",
+          "image": siteUrl + 'mee.webp',
           "telephone": "+33623034405",
           "address": {
             "@type": "PostalAddress",
@@ -39,9 +40,18 @@ useHead({
             "name": "Le Havre, France"
           },
           "sameAs": [
-            // "https://linkedin.com/in/xxx",
-            // "https://github.com/xxx",
-            // "https://comeup.com/xxx"
+            "https://linkedin.com/in/thomas-tofil-619653296",
+          ]
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "Person",
+          "name": "Thomas Tofil",
+          "jobTitle": "Agent IA & Automatisation n8n",
+          "url": "https://thomas-tofil.fr/",
+          "sameAs": [
+            "https://linkedin.com/in/thomas-tofil-619653296",
+            "https://comeup.com/fr/@thomas-automation",
           ]
         },
         {
@@ -87,7 +97,7 @@ useHead({
               "name": "Puis-je commencer petit ?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Oui ! Notre agent IA est évolutif et peut s'adapter à vos besoins. Vous pouvez commencez petit et étendre les fonctionnalités au fur et à mesure."
+                "text": "Oui ! Mon agent IA est évolutif et peut s'adapter à vos besoins. Vous pouvez commencez petit et étendre les fonctionnalités au fur et à mesure."
               }
             },
             {
@@ -111,7 +121,7 @@ useHead({
               "name": "Quelles langues ?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Notre agent IA est disponible en plusieurs langues (FR/EN sur demande)."
+                "text": "Mon agent IA est disponible en plusieurs langues (FR/EN sur demande)."
               }
             },
             {
