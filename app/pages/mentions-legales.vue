@@ -1,10 +1,17 @@
 <script setup lang="ts">
+const canonical = 'https://thomastofil.fr/mentions-legales'
+
 useSeoMeta({
   title: 'Mentions légales — Thomas Tofil',
   description: 'Mentions légales du site de Thomas Tofil, freelance en automatisation et agent IA basé au Havre, France.',
   robots: 'noindex,follow'
 })
+
+useHead({
+  link: [{ rel: 'canonical', href: canonical }]
+})
 </script>
+
 
 <template>
   <main id="mentions-legales" class="container prose section-separator">

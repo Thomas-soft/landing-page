@@ -58,7 +58,17 @@ export default defineNuxtConfig({
   ssr: true,
   target: 'static',
   app: { head: { htmlAttrs: { lang: 'fr' } } },
-  nitro: { preset: 'cloudflare_module' },
+  nitro: {
+    preset: 'cloudflare_module',
+    routeRules: {
+      '/mentions-legales': {
+        headers: { 'x-robots-tag': 'noindex, follow' }
+      },
+      '/confidentialite': {
+        headers: { 'x-robots-tag': 'noindex, follow' }
+      }
+    }
+  },
   css: ['@/assets/css/main.scss'],
   routeRules: {
     '/**': { prerender: true },

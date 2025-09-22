@@ -2,10 +2,10 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://thomastofil.fr/</loc>
-    <lastmod>2025-09-02</lastmod>
-    <priority>1.0</priority>
+    <lastmod>2025-09-22</lastmod>
+    <!-- <priority>1.0</priority> -->
   </url>
-  <url>
+  <!-- <url>
     <loc>https://thomastofil.fr/mentions-legales</loc>
     <lastmod>2025-09-02</lastmod>
     <priority>0.5</priority>
@@ -14,5 +14,5 @@
     <loc>https://thomastofil.fr/confidentialite</loc>
     <lastmod>2025-09-02</lastmod>
     <priority>0.5</priority>
-  </url>
+  </url> -->
 </urlset>

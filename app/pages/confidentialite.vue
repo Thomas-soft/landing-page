@@ -1,10 +1,17 @@
 <script setup lang="ts">
+const canonical = 'https://thomastofil.fr/confidentialite'
+
 useSeoMeta({
   title: 'Politique de confidentialité — Thomas Tofil',
-  description: 'Politique de confidentialité et traitement des données personnelles selon le RGPD pour {freelance_nom}.',
+  description: 'Politique de confidentialité et traitement des données personnelles selon le RGPD pour Thomas Tofil.',
   robots: 'noindex,follow'
 })
+
+useHead({
+  link: [{ rel: 'canonical', href: canonical }]
+})
 </script>
+
 
 <template>
   <main id="confidentialite" class="container prose section-separator">
