@@ -10,28 +10,24 @@ useHead({
   ],
   link: [
     { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
+    { rel: 'canonical', href: 'https://thomastofil.fr/' }
     // Ajoute ici des preconnect si tu utilises un CDN spécifique
     // { rel: 'preconnect', href: 'https://cdn.example.com', crossorigin: '' }
   ]
 })
+
 </script>
 
 <template>
-  <!-- IMPORTANT : envelopper NuxtPage avec NuxtLayout -->
   <NuxtLayout>
-    <!-- Skip link (accessibilité clavier/SEO indirect via UX) -->
     <a href="#content" class="skip-link">Aller au contenu principal</a>
 
-    <!-- Contenu des pages -->
     <NuxtPage />
-
-    <!-- Annonce les changements de route aux lecteurs d’écran -->
     <NuxtRouteAnnouncer />
   </NuxtLayout>
 </template>
 
 <style>
-/* Skip link visible au focus uniquement */
 .skip-link {
   position: absolute;
   left: 0.5rem;
@@ -45,4 +41,6 @@ useHead({
   box-shadow: 0 2px 8px rgba(0,0,0,.15);
 }
 .skip-link:focus { top: 0.5rem; }
+
+
 </style>

@@ -41,7 +41,7 @@ const vIntersect = {
       <article data-reveal-b>
         <h3>E-commerce</h3>
         <ul class="list-unstyled">
-          <li data-reveal-b>SAV 24/7 &lt;1s, -90% d'e-mails récurrents</li>
+          <li data-reveal-b>SAV 24/7 réponses en moins de 5s, -90% d'e-mails récurrents</li>
           <li data-reveal-b>Pré-vente assistée, +8-15% ajout panier</li>
           <li data-reveal-b>Relances panier, +10-25% récupérations</li>
           <li data-reveal-b>Suivi de commande</li>

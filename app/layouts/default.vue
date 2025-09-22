@@ -4,6 +4,7 @@
 <template>
   <div id="app">
     <NuxtPage />
+    <CookieControl locale="fr" />
     <SiteFooter />
   </div>
 </template>

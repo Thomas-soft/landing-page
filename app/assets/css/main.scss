@@ -7,6 +7,9 @@
   align-items: center;
 }
 
+.cookieControl, .cookieControl * { z-index: 99999 !important; }
+html, body { overflow: visible !important; }
+
 /* Visually hidden (pour lecteurs d’écran) */
 .sr-only {
   position: absolute !important;
@@ -126,6 +129,7 @@ a:focus-visible {
 /* ===============================
 // Buttons (sans transition: all)
 =============================== */
+
 .btn {
   display: inline-flex;
   align-items: center;
@@ -164,6 +168,20 @@ a:focus-visible {
   background: transparent;
 
   &:hover { background: $color-accent; color: #fff; }
+}
+
+.cookieControl__BarContainer
+{
+  background-color: $color-dark;
+  color: $color-text !important;
+  button
+  {
+    border-radius: $radius;
+    color: $color-text !important;
+    background-color: $color-accent !important;
+    width: 100% !important;
+    transition: all .2s ease !important;
+  }
 }
 
 /* ===============================
