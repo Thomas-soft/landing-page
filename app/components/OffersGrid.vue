@@ -1,28 +1,5 @@
 <script setup lang="ts">
-// réutilise la directive si tu l'as placée dans /directives
-const vIntersect = {
-  mounted(el: HTMLElement, binding: any) {
-    const className = binding?.value?.class ?? 'is-visible'
-    const once = binding?.value?.once ?? true
-    const threshold = binding?.value?.threshold ?? 0.2
 
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          el.classList.add(className)
-          if (once) io.unobserve(el)
-        } else if (!once) {
-          el.classList.remove(className)
-        }
-      })
-    }, { threshold })
-
-    // @ts-ignore - attache pour cleanup
-    el.__io = io
-    io.observe(el)
-  },
-  unmounted(el: any) { el.__io?.disconnect?.() }
-}
 </script>
 
 <template>
@@ -30,134 +7,99 @@ const vIntersect = {
     class="pricing section-separator reveal-pricing"
     aria-labelledby="offers-title"
     id="offres"
-    v-intersect="{ threshold: 0.15, once: true }"
   >
-    <header class="pricing__header" data-reveal-pricing>
-      <h2 id="offers-title" class="pricing__title" data-reveal-pricing>Mes offres</h2>
-      <p class="pricing__subtitle" data-reveal-pricing>Choisissez le pack qui correspond le mieux à vos besoins.</p>
+    <header class="pricing__header">
+      <h2 id="offers-title" class="pricing__title">Les offres</h2>
+      <p class="pricing__subtitle">Choisissez le pack adapté à votre volume d'appels et à votre stack.</p>
     </header>
 
-    <div class="pricing__grid" data-reveal-pricing>
-      <article class="card" data-reveal-pricing="card-left">
+    <div class="pricing__grid">
+      <!-- Pack 1 : Show-Up Starter -->
+      <article class="card">
         <header class="card__head">
-          <h3 class="card__title">Essentiel</h3>
-          <p class="card__tag">Idéal salons & petites boutiques.</p>
+          <h3 class="card__title">Show-Up Starter</h3>
+          <p class="card__tag">Rapide & efficace pour petites équipes.</p>
         </header>
         <ul class="card__list list-unstyled">
-          <li class="card__item--ok">Réponses automatiques (FAQ, horaires, prix, suivi simple)</li>
-          <li class="card__item--ok">Compréhension du contexte dans la conversation</li>
-          <li class="card__item--ok">Intégration site web (WordPress, WooCommerce, etc.)</li>
-          <li class="card__item--ok">Personnalisation basique (logo, nom, couleurs)</li>
-          <li class="card__item--ok">Un canal (Email, Site web, WhatsApp, Messenger, Telegram)</li>
-          <li class="card__item--no">Actions simples (RDV, formulaires, transfert humain)</li>
-          <li class="card__item--no">Multi-canaux</li>
-          <li class="card__item--no">Personnalisation avancée (FAQ, documentation, contenu, etc.)</li>
-          <li class="card__item--no">Personnalisation e-commerce (suivi de commandes Shopify/WooCommerce, relance panier abandonné, etc.)</li>
-          <li class="card__item--no">Automatisations CRM (Création/MAJ de fiches clients)</li>
-          <li class="card__item--no">Automatisations support SAV avancées (Création de ticket, notifications)</li>
-          <li class="card__item--no">Personnalisation sur-mesure (connexion API, webhook, base clients, données internes)</li>
+          <li class="card__item--ok">Confirmations, rappels et replanification automatique</li>
+          <li class="card__item--ok">Intégration calendrier</li>
+          <li class="card__item--ok">Automatisations CRM (création/MAJ contacts & activités)</li>
+          <li class="card__item--ok">Tableau de bord de base (présence, rebook, sources)</li>
+          <li class="card__item--ok">Un canal actif (Email, SMS ou WhatsApp)</li>
+          <li class="card__item--no">Suivi multicanal</li>
+          <li class="card__item--no">Routage speed-to-lead (priorités, round-robin)</li>
+          <li class="card__item--no">Séquences de relance multicanales (Email, SMS, WhatsApp)</li>
+          <li class="card__item--no">Scoring simple & priorisation des appels utiles</li>
+          <li class="card__item--no">Implémentation IA dans les visioconférences</li>
+          <li class="card__item--no">Chat bot intelligent pour le service client</li>
+          <li class="card__item--no">Dashboards avancés (délais RDV→doc, signature)</li>
+          <li class="card__item--no">DocOps : génération, envoi, signature & archivage</li>
+          <li class="card__item--no">Intégrations API & webhooks sur-mesure</li>
         </ul>
-        <a href="#contact" class="btn btn--primary">Démarrer pour 250&#x20AC;</a>
+        <!-- <a href="#contact" class="btn btn--primary">Demander un devis</a> -->
+         <a href="#contact" class="btn btn--primary">À partir de 1 600 €</a>
       </article>
 
-      <article class="card" data-reveal-pricing="card-up">
+      <!-- Pack 2 : Follow-Up Pro -->
+      <article class="card">
         <header class="card__head">
-          <h3 class="card__title">Pro</h3>
-          <p class="card__tag">E-commerce &amp; multi-sites.</p>
+          <h3 class="card__title">Follow-Up Pro</h3>
+          <p class="card__tag">Agences marketing, closing & autres.</p>
         </header>
         <ul class="card__list list-unstyled">
-          <li class="card__item--ok">Réponses automatiques (FAQ, horaires, prix, suivi simple)</li>
-          <li class="card__item--ok">Compréhension du contexte dans la conversation</li>
-          <li class="card__item--ok">Intégration site web (WordPress, WooCommerce, etc.)</li>
-          <li class="card__item--ok">Personnalisation basique (logo, nom, couleurs)</li>
-          <li class="card__item--ok">Un canal (Email, Site web, WhatsApp, Messenger, Telegram)</li>
-          <li class="card__item--ok">Actions simples (RDV, formulaires, transfert humain)</li>
-          <li class="card__item--no">Multi-canaux</li>
-          <li class="card__item--no">Personnalisation avancée (FAQ, documentation, contenu, etc.)</li>
-          <li class="card__item--no">Personnalisation e-commerce (suivi de commandes Shopify/WooCommerce, relance panier abandonné, etc.)</li>
-          <li class="card__item--no">Automatisations CRM (Création/MAJ de fiches clients)</li>
-          <li class="card__item--no">Automatisations support SAV avancées (Création de ticket, notifications)</li>
-          <li class="card__item--no">Personnalisation sur-mesure (connexion API, webhook, base clients, données internes)</li>
+          <li class="card__item--ok">Confirmations, rappels et replanification automatique</li>
+          <li class="card__item--ok">Intégration calendrier</li>
+          <li class="card__item--ok">Automatisations CRM (création/MAJ contacts & activités)</li>
+          <li class="card__item--ok">Tableau de bord de base (présence, rebook, sources)</li>
+          <li class="card__item--ok">Un canal actif (Email, SMS ou WhatsApp)</li>
+          <li class="card__item--ok">Suivi multicanal</li>
+          <li class="card__item--ok">Routage speed-to-lead (priorités, round-robin)</li>
+          <li class="card__item--ok">Séquences de relance multicanales (Email, SMS, WhatsApp)</li>
+          <li class="card__item--ok">Scoring simple & priorisation des appels utiles</li>
+          <li class="card__item--no">Implémentation IA dans les visioconférences</li>
+          <li class="card__item--no">Chat bot intelligent pour le service client</li>
+          <li class="card__item--no">Dashboards avancés (délais RDV→doc, signature)</li>
+          <li class="card__item--no">DocOps : génération, envoi, signature & archivage</li>
+          <li class="card__item--no">Intégrations API & webhooks sur-mesure</li>
         </ul>
-        <a href="#contact" class="btn btn--primary">Démarrer pour 350&#x20AC;</a>
+        <!-- <a href="#contact" class="btn btn--primary">Parler à un expert</a> -->
+        <a href="#contact" class="btn btn--primary">À partir de 2 900 €</a>
       </article>
 
-      <article class="card card--featured" data-reveal-pricing="card-right-zoom">
+      <!-- Pack 3 : RevOps Automation Suite -->
+      <article class="card card--featured">
         <header class="card__head">
-          <h3 class="card__title">Premium</h3>
-          <p class="card__tag">Sur-mesure &amp; SLA.</p>
+          <h3 class="card__title">RevOps Automation Suite</h3>
+          <p class="card__tag">Sur-mesure, DocOps & SLA.</p>
         </header>
         <ul class="card__list list-unstyled">
-          <li class="card__item--ok">Réponses automatiques (FAQ, horaires, prix, suivi simple)</li>
-          <li class="card__item--ok">Compréhension du contexte dans la conversation</li>
-          <li class="card__item--ok">Intégration site web (WordPress, WooCommerce, etc.)</li>
-          <li class="card__item--ok">Personnalisation basique (logo, nom, couleurs)</li>
-          <li class="card__item--ok">Un canal (Email, Site web, WhatsApp, Messenger, Telegram)</li>
-          <li class="card__item--ok">Multi-canaux</li>
-          <li class="card__item--ok">Actions simples (RDV, formulaires, transfert humain)</li>
-          <li class="card__item--ok">Personnalisation avancée (FAQ, documentation, contenu, etc.)</li>
-          <li class="card__item--ok">Personnalisation e-commerce (suivi de commandes Shopify/WooCommerce, relance panier abandonné, etc.)</li>
-          <li class="card__item--ok">Automatisations CRM (Création/MAJ de fiches clients)</li>
-          <li class="card__item--ok">Automatisations support SAV avancées (Création de ticket, notifications)</li>
-          <li class="card__item--ok">Personnalisation sur-mesure (connexion API, webhook, base clients, données internes)</li>
+          <li class="card__item--ok">Confirmations, rappels et replanification automatique</li>
+          <li class="card__item--ok">Intégration calendrier</li>
+          <li class="card__item--ok">Automatisations CRM (création/MAJ contacts & activités)</li>
+          <li class="card__item--ok">Tableau de bord de base (présence, rebook, sources)</li>
+          <li class="card__item--ok">Un canal actif (Email, SMS ou WhatsApp)</li>
+          <li class="card__item--ok">Suivi multicanal</li>
+          <li class="card__item--ok">Routage speed-to-lead (priorités, round-robin)</li>
+          <li class="card__item--ok">Séquences de relance multicanales (Email, SMS, WhatsApp)</li>
+          <li class="card__item--ok">Scoring simple & priorisation des appels utiles</li>
+          <li class="card__item--ok">Implémentation IA dans les visioconférences</li>
+          <li class="card__item--ok">Chat bot intelligent pour le service client</li>
+          <li class="card__item--ok">Dashboards avancés (délais RDV→doc, signature)</li>
+          <li class="card__item--ok">DocOps : génération, envoi, signature & archivage</li>
+          <li class="card__item--ok">Intégrations API & webhooks sur-mesure</li>
         </ul>
-        <a href="#contact" class="btn btn--primary btn--glow">Démarrer à partir de 969&#x20AC;</a>
+        <a href="#contact" class="btn btn--primary btn--glow">Planifier un diagnostic</a>
+        <!-- <a href="#contact" class="btn btn--primary btn--glow">À partir de 7 900 €</a> -->
       </article>
     </div>
 
-    <p class="pricing__badges" data-reveal-pricing>Résultat garanti • Satisfait ou remboursé</p>
+    <p class="pricing__badges">Satisfait ou remboursé</p>
   </section>
 </template>
 
 <style scoped lang="scss">
 @use "sass:color";
 @use "@/assets/css/main" as *;
-
-/* ================= Reveal au scroll (Pricing) ================= */
-.reveal-pricing [data-reveal-pricing] {
-  opacity: 0;
-  transform: translateY(16px);
-  transition: opacity .55s ease, transform .55s ease;
-  // will-change: opacity, transform;
-}
-
-/* variantes d’entrée pour les cartes */
-.reveal-pricing [data-reveal-pricing="card-left"]      { transform: translateX(-18px); }
-.reveal-pricing [data-reveal-pricing="card-up"]        { transform: translateY(22px); }
-.reveal-pricing [data-reveal-pricing="card-right-zoom"]{ transform: translateX(18px) scale(.98); }
-
-.reveal-pricing.is-visible [data-reveal-pricing],
-.reveal-pricing.is-visible [data-reveal-pricing="card-left"],
-.reveal-pricing.is-visible [data-reveal-pricing="card-up"],
-.reveal-pricing.is-visible [data-reveal-pricing="card-right-zoom"] {
-  opacity: 1;
-  transform: none;
-}
-
-/* Stagger : header -> grid -> cartes 1/2/3 -> badges */
-.reveal-pricing.is-visible .pricing__header[data-reveal-pricing] { transition-delay: .00s; }
-.reveal-pricing.is-visible .pricing__grid[data-reveal-pricing]   { transition-delay: .06s; }
-.reveal-pricing.is-visible .pricing__grid .card[data-reveal-pricing]:nth-child(1) { transition-delay: .12s; }
-.reveal-pricing.is-visible .pricing__grid .card[data-reveal-pricing]:nth-child(2) { transition-delay: .18s; }
-.reveal-pricing.is-visible .pricing__grid .card[data-reveal-pricing]:nth-child(3) { transition-delay: .24s; }
-.reveal-pricing.is-visible .pricing__badges[data-reveal-pricing] { transition-delay: .30s; }
-
-/* Optionnel : les items de liste se révèlent vite après la carte */
-.reveal-pricing.is-visible .card .card__list li { 
-  transition: opacity .35s ease .18s, transform .35s ease .18s;
-  opacity: 1; transform: none;
-}
-.reveal-pricing .card .card__list li { opacity: 0; transform: translateY(6px); }
-
-/* Accessibilité */
-@media (prefers-reduced-motion: reduce) {
-  .reveal-pricing [data-reveal-pricing],
-  .reveal-pricing .card .card__list li {
-    transition: none !important;
-    opacity: 1 !important;
-    transform: none !important;
-  }
-}
 
 /* ================ Ton CSS existant (inchangé) ================ */
 $bg: #0b0f14; $bg-accent: #14162a; $fg: #e8eef7; $muted: #b5c0cf;

@@ -4,31 +4,6 @@ defineProps<{
   caseMetrics: { conv: string; time: string }; 
   tools: string[] 
 }>()
-
-// réutilise ta directive si tu l'as déjà exportée ailleurs
-const vIntersect = {
-  mounted(el: HTMLElement, binding: any) {
-    const className = binding?.value?.class ?? 'is-visible'
-    const once = binding?.value?.once ?? true
-    const threshold = binding?.value?.threshold ?? 0.2
-
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          el.classList.add(className)
-          if (once) io.unobserve(el)
-        } else if (!once) {
-          el.classList.remove(className)
-        }
-      })
-    }, { threshold })
-
-    // @ts-ignore - attache pour cleanup
-    el.__io = io
-    io.observe(el)
-  },
-  unmounted(el: any) { el.__io?.disconnect?.() }
-}
 </script>
 
 <template>
@@ -36,91 +11,65 @@ const vIntersect = {
     aria-labelledby="about-title"
     id="about"
     class="about section-separator reveal-about"
-    v-intersect="{ threshold: 0.15, once: true }"
   >
-    <h2 id="about-title" class="about__title" data-reveal-about>À propos</h2>
+    <h2 id="about-title" class="about__title">À propos de Thomas Tofil</h2>
 
-    <div class="about-content" data-reveal-about>
-      <!-- 📸 Photo -->
-      <div class="img-contain" data-reveal-about="img">
+    <div class="about-content">
+      <div class="img-contain">
         <img 
           src="/mee.webp" 
-          alt="Photo de Thomas Tofil, freelance en automatisation n8n et agents IA/chatbots" 
+          alt="Photo de Thomas Tofil, freelance en automatisation CRM et agents IA" 
           class="about-photo" 
           width="auto" height="600"
           loading="lazy" 
         />
       </div>
 
-      <div class="about-text" data-reveal-about="text">
-        <h4 class="about__headline">🚀 J'aide les PME et entrepreneurs à gagner du temps et augmenter leur efficacité grâce à l'automatisation et l'intelligence artificielle.</h4>
+      <div class="about-text">
+        <h4 class="about__headline">J'aide principalement les agences à réduire le no-show et à structurer le suivi prospects grâce à l'automatisation avec et sans IA.</h4>
 
         <p class="about__intro">
-          <strong>Thomas Tofil</strong>, freelance en automatisation n8n & agents IA/chatbots. 
-          Formé à l'École 42. Approche pragmatique, pédagogique et orientée ROI.
+          <strong>Thomas Tofil</strong>, freelance en automatisation (CRM, calendriers, messageries) et agents IA. 
+          3 ans d'expérience. Formé à l'École 42. Approche simple, opérationnelle et orientée résultats.
         </p>
 
-        <h5 class="about__sub">💡 Mes expertises :</h5>
+        <h5 class="about__sub">Mes expertises</h5>
         <ul class="bullets list-unstyled">
+          <!-- <li>Parcours anti no-show&nbsp;: confirmations, rappels, replanification.</li>
+          <li>Follow-up multicanal&nbsp;: speed-to-lead, scoring léger, priorisation.</li>
+          <li>DocOps&nbsp;: génération, envoi et signature de documents depuis le CRM.</li> -->
           <li>Conception de workflows automatisés sur mesure (Zapier, Make, N8n, Python & API).</li>
           <li>Développement d'agents IA intelligents pour le service client.</li>
+          <li>Intégration de solutions tierces (API, webhooks) pour une automatisation fluide.</li>
+          <li>Suivi multicanal : confirmations, rappels, replanification, priorisation.</li>
+          <li>Implémentation IA dans les visioconférences.</li>
+          <li>Analyse de documents pour en extraire des informations clés.</li>
+          <li>Utilisation de documents templates.</li>
           <li>Optimisation des process internes pour réduire les coûts et limiter les erreurs.</li>
+          <li>Mise en place d'une sécurité renforcée des actions automatisées.</li>
         </ul>
 
-        <h5 class="about__sub">🎯 Pourquoi me choisir :</h5>
+        <h5 class="about__sub">Pourquoi travailler ensemble</h5>
         <ul class="bullets list-unstyled">
           <li>3 ans d'expérience dans le domaine du numérique et de la tech, avec une vision orientée résultats et efficacité.</li>
           <li>Formé à l'École 42 (fondée par Xavier Niel - Fondateur de Free) : une école d'excellence qui développe rigueur, créativité et esprit de résolution de problèmes.</li>
           <li>Communication claire & pédagogique : vous comprenez chaque étape, sans jargon technique.</li>
           <li>Résultats mesurables : des solutions simples, efficaces et pensées pour le ROI.</li>
           <li>Suivi régulier et ajustements : votre projet évolue, moi aussi.</li>
+          <li>Mon ADN issu de l'École 42 et mes années d'expérience : penser différemment, transformer la complexité en solutions concrètes et générer de la valeur durable pour chaque projet.</li>
+          <li>Déploiement local possible : exécution sur votre serveur/VPS, données et secrets chez vous, sans verrouillage fournisseur.</li>
         </ul>
 
-        <p class="about__note">✨ Mon ADN issu de l'École 42 et mes années d'expérience : penser différemment, transformer la complexité en solutions concrètes et générer de la valeur durable pour chaque projet.</p>
+        <p class="about__note">Objectif&nbsp;: transformer des process éparpillés en parcours simples, fiables et faciles à maintenir.</p>
       </div>
     </div>
 
-    <p class="about-tools" data-reveal-about><em>Outils :</em> {{ tools.join(' • ') }}</p>
+    <p class="about-tools"><em>Outils :</em> {{ tools.join(' • ') }}</p>
   </section>
 </template>
 
 <style scoped lang="scss">
 @use "@/assets/css/main.scss" as *;
-
-/* ===================== Reveal au scroll (100% SCSS) ===================== */
-.reveal-about [data-reveal-about] {
-  opacity: 0;
-  transform: translateY(14px);
-  transition: opacity .55s ease, transform .55s ease;
-  // will-change: opacity, transform;
-}
-
-/* Effets différenciés image/texte */
-.reveal-about [data-reveal-about="img"]   { transform: translateX(-18px) scale(.98); }
-.reveal-about [data-reveal-about="text"]  { transform: translateY(16px); }
-
-.reveal-about.is-visible [data-reveal-about],
-.reveal-about.is-visible [data-reveal-about="img"],
-.reveal-about.is-visible [data-reveal-about="text"] {
-  opacity: 1;
-  transform: none;
-}
-
-/* Stagger doux */
-.reveal-about.is-visible .about__title[data-reveal-about] { transition-delay: .00s; }
-.reveal-about.is-visible .about-content[data-reveal-about] { transition-delay: .08s; }
-.reveal-about.is-visible [data-reveal-about="img"] { transition-delay: .12s; }
-.reveal-about.is-visible [data-reveal-about="text"] { transition-delay: .18s; }
-.reveal-about.is-visible .about-tools[data-reveal-about] { transition-delay: .26s; }
-
-/* Accessibilité */
-@media (prefers-reduced-motion: reduce) {
-  .reveal-about [data-reveal-about] {
-    transition: none !important;
-    opacity: 1 !important;
-    transform: none !important;
-  }
-}
 
 /* ===================== Ton style existant + corrections ===================== */
 

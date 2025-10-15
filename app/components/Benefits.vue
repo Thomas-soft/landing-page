@@ -1,29 +1,5 @@
 <script setup lang="ts">
-// si tu as déjà créé la directive dans le Hero, réutilise-la :
-const vIntersect = {
-  mounted(el: HTMLElement, binding: any) {
-    const className = binding?.value?.class ?? 'is-visible'
-    const once = binding?.value?.once ?? true
-    const threshold = binding?.value?.threshold ?? 0.2
 
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          el.classList.add(className)
-          if (once) io.unobserve(el)
-        } else if (!once) {
-          el.classList.remove(className)
-        }
-      })
-    }, { threshold })
-
-    // @ts-ignore - attache pour cleanup
-    el.__io = io
-    io.observe(el)
-  },
-  unmounted(el: any) { el.__io?.disconnect?.() }
-}
-// import vIntersect from '@/directives/v-intersect' // adapte le chemin si besoin
 </script>
 
 <template>
@@ -31,42 +7,47 @@ const vIntersect = {
     aria-labelledby="benefits-title"
     id="benefits"
     class="section-separator reveal-b"
-    v-intersect="{ threshold: 0.15, once: true }"
   >
-    <header class="section-header" data-reveal-b>
-      <h2 id="benefits-title">Les bénéfices d'un agent IA</h2>
+    <header class="section-header">
+      <h2 id="benefits-title">Bénéfices clés pour votre entreprise</h2>
     </header>
 
     <div class="grid">
-      <article data-reveal-b>
-        <h3>E-commerce</h3>
+      <article>
+        <h3>Agences</h3>
         <ul class="list-unstyled">
-          <li data-reveal-b>SAV 24/7 réponses en moins de 5s, -90% d'e-mails récurrents</li>
-          <li data-reveal-b>Pré-vente assistée, +8-15% ajout panier</li>
-          <li data-reveal-b>Relances panier, +10-25% récupérations</li>
-          <li data-reveal-b>Suivi de commande</li>
-          <li data-reveal-b>Intégration CRM & scoring</li>
+          <li>Prise en charge rapide des prospects (speed-to-lead) et qualification dès l'entrée.</li>
+          <li>Scalabilité accrue des capacités.</li>
+          <li>Gains de temps significatifs.</li>
+          <li>Moins de tâches manuelles et répétitives pour les équipes.</li>
+          <li>Meilleure organisation des agendas et réduction du no-show.</li>
+          <li>Relances automatisées et replanification en un clic après absence.</li>
+          <li>Meilleure visibilité sur les performances commerciales.</li>
         </ul>
       </article>
 
-      <article data-reveal-b>
-        <h3>Salons & Artisans</h3>
+      <article>
+        <h3>Professionnels</h3>
         <ul class="list-unstyled">
-          <li data-reveal-b>Prise de RDV, confirmations & rappels</li>
-          <li data-reveal-b>Réponds aux questions clients (prix, horaires, délais, etc.)</li>
+          <li>Moins de charge mentale au travail</li>
+          <li>Meilleure gestion du temps et des priorités</li>
+          <li>Collaboration améliorée avec les équipes</li>
+          <li>Réduction du stress lié aux tâches administratives</li>
+          <li>Plus de temps pour se concentrer sur les tâches à forte valeur ajoutée</li>
+          <li>Meilleure satisfaction au travail</li>
         </ul>
       </article>
     </div>
 
-    <aside class="how-it-works" aria-labelledby="how-title" data-reveal-b>
+    <aside class="how-it-works" aria-labelledby="how-title" >
       <h3 id="how-title" class="sr-only">Comment ça marche</h3>
       <!-- <p> -->
         <strong>Comment ça marche&nbsp;?</strong>
         <br>
-        <ol data-reveal-b>
-          <li data-reveal-b><strong>Analyse des besoins :</strong> identification des tâches à automatiser.</li>
-          <li data-reveal-b><strong>Développement de la solution :</strong> configuration adaptée à l'activité et aux clients.</li>
-          <li data-reveal-b><strong>Déploiement & suivi :</strong> mise en service, contrôle des performances et améliorations continues.</li>
+        <ol >
+          <li ><strong>Analyse des besoins :</strong> identification des tâches à automatiser.</li>
+          <li ><strong>Développement de la solution :</strong> configuration adaptée à l'activité et aux clients.</li>
+          <li ><strong>Déploiement & suivi :</strong> mise en service, contrôle des performances et améliorations continues.</li>
         </ol>
       <!-- </p> -->
     </aside>
@@ -75,48 +56,6 @@ const vIntersect = {
 
 <style scoped lang="scss">
 @use "@/assets/css/main" as *;
-
-/* --------- Effets reveal (section Benefits) --------- */
-/* état initial des éléments marqués */
-.reveal-b [data-reveal-b] {
-  opacity: 0;
-  transform: translateY(16px) scale(.98);
-  transition: opacity .55s ease, transform .55s ease;
-  // will-change: opacity, transform;
-}
-
-/* quand la section entre dans le viewport via .is-visible */
-.reveal-b.is-visible [data-reveal-b] {
-  opacity: 1;
-  transform: none;
-}
-
-/* Stagger simple (délais différents pour un effet en cascade) */
-.reveal-b.is-visible .section-header[data-reveal-b] { transition-delay: .00s; }
-.reveal-b.is-visible .grid article[data-reveal-b]:nth-child(1) { transition-delay: .08s; }
-.reveal-b.is-visible .grid article[data-reveal-b]:nth-child(2) { transition-delay: .16s; }
-
-/* Les items de liste entrent après leur article */
-.reveal-b.is-visible .grid article:nth-child(1) li[data-reveal-b]:nth-child(1) { transition-delay: .18s; }
-.reveal-b.is-visible .grid article:nth-child(1) li[data-reveal-b]:nth-child(2) { transition-delay: .22s; }
-.reveal-b.is-visible .grid article:nth-child(1) li[data-reveal-b]:nth-child(3) { transition-delay: .26s; }
-.reveal-b.is-visible .grid article:nth-child(1) li[data-reveal-b]:nth-child(4) { transition-delay: .30s; }
-.reveal-b.is-visible .grid article:nth-child(1) li[data-reveal-b]:nth-child(5) { transition-delay: .34s; }
-
-.reveal-b.is-visible .grid article:nth-child(2) li[data-reveal-b]:nth-child(1) { transition-delay: .18s; }
-.reveal-b.is-visible .grid article:nth-child(2) li[data-reveal-b]:nth-child(2) { transition-delay: .22s; }
-
-.reveal-b.is-visible aside.how-it-works[data-reveal-b] { transition-delay: .20s; }
-
-/* Accessibilité : respecte la préférence utilisateur */
-@media (prefers-reduced-motion: reduce) {
-  .reveal-b [data-reveal-b] {
-    transition: none !important;
-    transform: none !important;
-    opacity: 1 !important;
-  }
-}
-
 /* --------- Tes styles existants --------- */
 .section-header { margin-block-end: 1.25rem; }
 

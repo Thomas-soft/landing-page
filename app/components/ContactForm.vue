@@ -1,33 +1,5 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-
-/* ------------------------------
-   Directive Intersection Observer
---------------------------------*/
-const vIntersect = {
-  mounted(el: HTMLElement, binding: any) {
-    const className = binding?.value?.class ?? 'is-visible'
-    const once = binding?.value?.once ?? true
-    const threshold = binding?.value?.threshold ?? 0.2
-
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          el.classList.add(className)
-          if (once) io.unobserve(el)
-        } else if (!once) {
-          el.classList.remove(className)
-        }
-      })
-    }, { threshold })
-
-    // @ts-ignore
-    el.__io = io
-    io.observe(el)
-  },
-  unmounted(el: any) { el.__io?.disconnect?.() }
-}
-
 /* ------------------------------
    State du formulaire
 --------------------------------*/
@@ -86,42 +58,41 @@ async function handleSubmit() {
     aria-labelledby="contact-title"
     id="contact"
     class="section-separator reveal-contact"
-    v-intersect="{ threshold: 0.15, once: true }"
   >
-    <h2 id="contact-title" data-reveal-contact>Envoyez moi un message</h2>
-    <p data-reveal-contact>
+    <h2 id="contact-title">Envoyez moi un message</h2>
+    <p>
       Parlez-moi de votre projet - Réponse en moins de 48h et je vous offre un audit gratuit.
     </p>
 
-    <form @submit.prevent="handleSubmit" novalidate aria-describedby="privacy-note" data-reveal-contact>
+    <form @submit.prevent="handleSubmit" novalidate aria-describedby="privacy-note">
       <div class="grid">
-        <label data-reveal-contact>
+        <label>
           Nom* 
           <input v-model="form.lastName" name="lastName" required autocomplete="family-name" />
         </label>
 
-        <label data-reveal-contact>
+        <label>
           Prénom* 
           <input v-model="form.firstName" name="firstName" required autocomplete="given-name" />
         </label>
 
-        <label data-reveal-contact>
+        <label>
           Email* 
           <input v-model="form.email" type="email" name="email" required autocomplete="email" />
         </label>
 
-        <label data-reveal-contact>
+        <label>
           Téléphone 
           <input v-model="form.phone" type="tel" name="phone" autocomplete="tel" />
         </label>
 
-        <label class="col-span-2" data-reveal-contact>
+        <label class="col-span-2">
           Message* 
           <textarea v-model="form.message" name="message" required rows="5"></textarea>
         </label>
       </div>
 
-      <div class="actions" data-reveal-contact>
+      <div class="actions">
         <button type="submit" class="btn btn-primary" :disabled="loading">
           {{ loading ? "Envoi en cours..." : "Envoyer ma demande" }}
         </button>
@@ -129,12 +100,12 @@ async function handleSubmit() {
 
       <!-- Messages d'état (avec reveal) -->
       <transition name="fade">
-        <p v-if="success" style="color: green; margin-top: 1rem;" data-reveal-contact>
+        <p v-if="success" style="color: green; margin-top: 1rem;">
           ✅ Message envoyé avec succès !
         </p>
       </transition>
       <transition name="fade">
-        <p v-if="error" style="color: red; margin-top: 1rem;" data-reveal-contact>
+        <p v-if="error" style="color: red; margin-top: 1rem;">
           ❌ {{ error }}
         </p>
       </transition>
@@ -145,47 +116,6 @@ async function handleSubmit() {
 <style scoped lang="scss">
 @use "sass:color";
 @use "@/assets/css/main.scss" as *;
-
-/* ===== Transition fade pour messages ===== */
-.fade-enter-active, .fade-leave-active {
-  transition: opacity .4s ease;
-}
-.fade-enter-from, .fade-leave-to {
-  opacity: 0;
-}
-
-/* ===== Reveal au scroll (Contact) ===== */
-.reveal-contact [data-reveal-contact] {
-  opacity: 0;
-  transform: translateY(14px);
-  transition: opacity .5s ease, transform .5s ease;
-}
-.reveal-contact.is-visible [data-reveal-contact] {
-  opacity: 1;
-  transform: none;
-}
-
-/* Stagger: titre -> sous-titre -> formulaire -> champs -> actions */
-.reveal-contact.is-visible #contact-title[data-reveal-contact] { transition-delay: .00s; }
-.reveal-contact.is-visible p[data-reveal-contact]              { transition-delay: .06s; }
-.reveal-contact.is-visible form[data-reveal-contact]           { transition-delay: .12s; }
-
-.reveal-contact .grid label[data-reveal-contact] { opacity: 0; transform: translateY(10px); }
-.reveal-contact.is-visible .grid label[data-reveal-contact] { opacity: 1; transform: none; }
-.reveal-contact.is-visible .grid label:nth-child(1)  { transition-delay: .16s; }
-.reveal-contact.is-visible .grid label:nth-child(2)  { transition-delay: .20s; }
-.reveal-contact.is-visible .grid label:nth-child(3)  { transition-delay: .24s; }
-.reveal-contact.is-visible .grid label:nth-child(4)  { transition-delay: .28s; }
-.reveal-contact.is-visible .grid label:nth-child(5)  { transition-delay: .32s; }
-
-.reveal-contact.is-visible .actions[data-reveal-contact] { transition-delay: .38s; }
-
-/* Accessibilité : réduire les mouvements si demandé */
-@media (prefers-reduced-motion: reduce) {
-  .reveal-contact [data-reveal-contact] {
-    transition: none !important; opacity: 1 !important; transform: none !important;
-  }
-}
 
 #contact {
   @include flex-center;

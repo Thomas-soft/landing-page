@@ -39,7 +39,7 @@ useHead({
       <h2>Durée de conservation</h2>
       <p>
         Les données sont conservées le temps nécessaire au traitement de votre demande,
-        puis supprimées au maximum après 12 mois si aucun suivi na lieu.
+        puis supprimées au maximum après 12 mois si aucun suivi n'a lieu.
       </p>
     </section>
 

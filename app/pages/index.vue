@@ -2,11 +2,11 @@
 const siteUrl = 'https://thomastofil.fr/'
 
 useSeoMeta({
-  title: 'Agent IA & automatisation n8n pour e-commerce & salons — Le Havre',
-  description: 'Chatbots IA multicanaux et automatisations n8n à Le Havre : support client, commandes, suivi colis, relances panier, RDV. Audit gratuit.',
+  title: 'Automatisation de tâches avancées, avec et sans IA',
+  description: 'Réduisez les absences aux rendez-vous et structurez vos relances. Automatisation du suivi prospects, prise en charge rapide, replanification et gestion des documents, directement dans votre CRM. ',
   robots: 'index,follow',
-  ogTitle: 'Agent IA & automatisation n8n — Le Havre',
-  ogDescription: 'Support, ventes et suivi automatisés sur WhatsApp, Telegram, Instagram, Messenger, Web et Email.',
+  ogTitle: 'Agent IA & automatisation n8n',
+  ogDescription: 'Automatisation de tâches avancées, avec et sans IA. Réduisez les absences aux rendez-vous et structurez vos relances. Automatisation du suivi prospects, prise en charge rapide, replanification et gestion des documents, directement dans votre CRM.',
   ogType: 'website',
   ogUrl: siteUrl,
   ogImage: siteUrl + 'mee.webp',
@@ -64,25 +64,25 @@ useHead({
           "offers": [
             {
               "@type": "Offer",
-              "name": "Pack Essentiel",
+              "name": "Show-Up Starter",
               "priceCurrency": "EUR",
-              "price": "250",
+              "price": "1600",
               "url": siteUrl + "#offres",
               "availability": "https://schema.org/InStock"
             },
             {
               "@type": "Offer",
-              "name": "Pack Pro",
+              "name": "Follow-Up Pro",
               "priceCurrency": "EUR",
-              "price": "350",
+              "price": "2900",
               "url": siteUrl + "#offres",
               "availability": "https://schema.org/InStock"
             },
             {
               "@type": "Offer",
-              "name": "Pack Elite",
-              "priceCurrency": "EUR",
-              "price": "969",
+              "name": "RevOps Automation Suite",
+              // "priceCurrency": "EUR",
+              // "price": "969",
               "url": siteUrl + "#offres",
               "availability": "https://schema.org/InStock"
             }

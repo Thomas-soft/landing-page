@@ -4,7 +4,6 @@ defineProps<{
   primaryCtaText: string;
 }>()
 
-/** Directive v-intersect : ajoute une classe quand l'élément devient visible */
 const vIntersect = {
   mounted(el: HTMLElement, binding: any) {
     const className = binding?.value?.class ?? 'is-visible'
@@ -31,36 +30,36 @@ const vIntersect = {
 </script>
 
 <template>
-  <!-- Ajout des classes reveal + directive  -->
   <section
     class="hero section-separator reveal"
     aria-labelledby="hero-title"
-    v-intersect="{ threshold: 0.1, once: true }"
   >
     <div class="container hero__grid">
 
       <div class="hero__content">
-        <h1 id="hero-title" data-reveal>
-          Votre Agent IA, 24/7 — Service client &amp; réservations automatisés
+        <h1 id="hero-title">
+          <!-- Automatisation d'agences avec une équipe d'agents IA -->
+           Automatisation de tâches avancées, avec et sans IA.
         </h1>
-        <p class="subtitle" data-reveal>
-          Automatisez le service client grâce à l'orchestration des chatbots via Email (Gmail, Outlook etc.), WhatsApp, Instagram, Messenger, Telegram ou encore sur votre site internet.
+        <p class="subtitle">
+          Réduisez les absences aux rendez-vous et structurez vos relances. Automatisation du suivi prospects, prise en charge rapide, replanification et gestion des documents, directement dans votre CRM.
         </p>
         <ul class="bullets list-unstyled" role="list">
-          <li data-reveal>Réponses instantanées (FAQ, retours, statuts colis)</li>
-          <li data-reveal>Assistance d'achat&nbsp;: recommandations, panier abandonné, upsell</li>
-          <li data-reveal>Suivi de commandes &amp; numéros de suivi en self-service</li>
-          <li data-reveal>Intégration au CRM, création de ticket &amp; reporting</li>
-          <li data-reveal>Prise de rendez-vous, confirmations &amp; rappels</li>
+          <li>Réduction du no-show : confirmations, rappels et replanification automatique des rendez-vous.</li>
+          <li>Speed-to-lead maîtrisé : prise en charge des prospects en quelques minutes, vers le bon agenda.</li>
+          <li>Notation des prospects et priorisation des appels utiles.</li>
+          <li>Orchestration multicanale depuis votre CRM (email, SMS, WhatsApp).</li>
+          <li>Tableaux de bord clairs : taux de présence, replanification, délais.</li>
+          <li>Confirmations, rappels et replanification automatisés des rendez-vous.</li>
         </ul>
-        <div class="ctas" data-reveal>
+        <div class="ctas">
           <a class="btn btn-secondary" href="#contact" :aria-label="primaryCtaText">
             {{ primaryCtaText }}
           </a>
         </div>
       </div>
 
-      <div class="hero__media" data-reveal>
+      <div class="hero__media">
         <figure>
           <img 
             src="/placeholder-hero.webp"
@@ -68,9 +67,9 @@ const vIntersect = {
             width="600" height="600"
             loading="lazy"
           >
-          <figcaption>
-            Email • WhatsApp • Instagram • Messenger • Telegram • Site Web
-          </figcaption>
+          <!-- <figcaption>
+            Email • SMS • WhatsApp • Appels • Calendly/Cal.com • CRM
+          </figcaption> -->
         </figure>
       </div>
     </div>
@@ -80,40 +79,6 @@ const vIntersect = {
 <style scoped lang="scss">
 @use "@/assets/css/main" as *;
 
-/* ----- Effets reveal (100% SCSS) ----- */
-.reveal [data-reveal] {
-  opacity: 0;
-  transform: translateY(14px);
-  transition: opacity .6s ease, transform .6s ease;
-}
-
-/* Quand la section devient visible, on enlève le décalage et on fade-in */
-.reveal.is-visible [data-reveal] {
-  opacity: 1;
-  transform: none;
-}
-
-/* Stagger simple (décalage d'animation) */
-.reveal.is-visible h1[data-reveal]           { transition-delay: .0s; }
-.reveal.is-visible .subtitle[data-reveal]    { transition-delay: .08s; }
-.reveal.is-visible .bullets li[data-reveal]  { transition-delay: .14s; }
-.reveal.is-visible .bullets li[data-reveal]:nth-child(2) { transition-delay: .20s; }
-.reveal.is-visible .bullets li[data-reveal]:nth-child(3) { transition-delay: .26s; }
-.reveal.is-visible .bullets li[data-reveal]:nth-child(4) { transition-delay: .32s; }
-.reveal.is-visible .bullets li[data-reveal]:nth-child(5) { transition-delay: .38s; }
-.reveal.is-visible .ctas[data-reveal]        { transition-delay: .46s; }
-.reveal.is-visible .hero__media[data-reveal] { transition-delay: .18s; }
-
-/* Respecte la préférence d’accessibilité */
-@media (prefers-reduced-motion: reduce) {
-  .reveal [data-reveal] {
-    transition: none;
-    transform: none;
-    opacity: 1;
-  }
-}
-
-/* ----- Ton style existant ----- */
 .hero {
   min-height: 100vh;
   @include flex-center;
