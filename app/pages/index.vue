@@ -2,11 +2,11 @@
 const siteUrl = 'https://thomastofil.fr/'
 
 useSeoMeta({
-  title: 'Automatisation de tâches avancées, avec et sans IA',
-  description: 'Réduisez les absences aux rendez-vous et structurez vos relances. Automatisation du suivi prospects, prise en charge rapide, replanification et gestion des documents, directement dans votre CRM. ',
+  title: 'Automatisation pour agences : RDV, relances, CRM, signature',
+  description: 'Workflows d\'automatisation pour agences : prise de RDV, relances, envoi de docs, CRM et e-signature. Moins de no-show, closing plus rapide.',
   robots: 'index,follow',
   ogTitle: 'Agent IA & automatisation n8n',
-  ogDescription: 'Automatisation de tâches avancées, avec et sans IA. Réduisez les absences aux rendez-vous et structurez vos relances. Automatisation du suivi prospects, prise en charge rapide, replanification et gestion des documents, directement dans votre CRM.',
+  ogDescription: 'Automatisation pour agences : de la prise de rendez-vous à la signature. Réduisez les absences aux rendez-vous et structurez vos relances. Automatisation du suivi prospects, prise en charge rapide, replanification et gestion des documents, directement dans votre CRM.',
   ogType: 'website',
   ogUrl: siteUrl,
   ogImage: siteUrl + 'mee.webp',

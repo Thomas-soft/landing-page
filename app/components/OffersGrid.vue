@@ -56,8 +56,8 @@
           <li class="card__item--ok">Routage speed-to-lead (priorités, round-robin)</li>
           <li class="card__item--ok">Séquences de relance multicanales (Email, SMS, WhatsApp)</li>
           <li class="card__item--ok">Scoring simple & priorisation des appels utiles</li>
+          <li class="card__item--ok">Chat bot intelligent pour le service client</li>
           <li class="card__item--no">Implémentation IA dans les visioconférences</li>
-          <li class="card__item--no">Chat bot intelligent pour le service client</li>
           <li class="card__item--no">Dashboards avancés (délais RDV→doc, signature)</li>
           <li class="card__item--no">DocOps : génération, envoi, signature & archivage</li>
           <li class="card__item--no">Intégrations API & webhooks sur-mesure</li>
@@ -82,8 +82,8 @@
           <li class="card__item--ok">Routage speed-to-lead (priorités, round-robin)</li>
           <li class="card__item--ok">Séquences de relance multicanales (Email, SMS, WhatsApp)</li>
           <li class="card__item--ok">Scoring simple & priorisation des appels utiles</li>
-          <li class="card__item--ok">Implémentation IA dans les visioconférences</li>
           <li class="card__item--ok">Chat bot intelligent pour le service client</li>
+          <li class="card__item--ok">Implémentation IA dans les visioconférences</li>
           <li class="card__item--ok">Dashboards avancés (délais RDV→doc, signature)</li>
           <li class="card__item--ok">DocOps : génération, envoi, signature & archivage</li>
           <li class="card__item--ok">Intégrations API & webhooks sur-mesure</li>

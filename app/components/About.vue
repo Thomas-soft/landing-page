@@ -64,7 +64,7 @@ defineProps<{
       </div>
     </div>
 
-    <p class="about-tools"><em>Outils :</em> {{ tools.join(' • ') }}</p>
+    <!-- <p class="about-tools"><em>Outils :</em> {{ tools.join(' • ') }}</p> -->
   </section>
 </template>
 

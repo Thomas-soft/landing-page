@@ -39,18 +39,28 @@ const vIntersect = {
       <div class="hero__content">
         <h1 id="hero-title">
           <!-- Automatisation d'agences avec une équipe d'agents IA -->
-           Automatisation de tâches avancées, avec et sans IA.
+           Automatisation commercial pour agences
         </h1>
         <p class="subtitle">
-          Réduisez les absences aux rendez-vous et structurez vos relances. Automatisation du suivi prospects, prise en charge rapide, replanification et gestion des documents, directement dans votre CRM.
+          <!-- Je mets en place des systèmes d'automatisation commercial avec une équipe d'agents IA.<br/> -->
+          De la prise de rendez-vous à la signature : relances, génération et envoi de documents, CRM, e-signature.<br/>
+          Le but : répondre en quelques minutes, réduire le no-show, envoyer les bons documents sans délai et maintenir un suivi des prospects impeccable.<br/>
+          Résultat : des prospects pris en charge immédiatement, une expérience fluide qui augmente la satisfaction client, et des signatures plus rapides.
         </p>
         <ul class="bullets list-unstyled" role="list">
-          <li>Réduction du no-show : confirmations, rappels et replanification automatique des rendez-vous.</li>
+          <!-- <li>Réduction du no-show : confirmations, rappels et replanification automatique des rendez-vous.</li>
           <li>Speed-to-lead maîtrisé : prise en charge des prospects en quelques minutes, vers le bon agenda.</li>
           <li>Notation des prospects et priorisation des appels utiles.</li>
           <li>Orchestration multicanale depuis votre CRM (email, SMS, WhatsApp).</li>
           <li>Tableaux de bord clairs : taux de présence, replanification, délais.</li>
-          <li>Confirmations, rappels et replanification automatisés des rendez-vous.</li>
+          <li>Confirmations, rappels et replanification automatisés des rendez-vous.</li> -->
+          <li>Capture & qualification</li>
+          <li>Prise de RDV intelligente</li>
+          <li>Compte-rendu → CRM</li>
+          <li>Envoi de documents</li>
+          <li>Relances orchestrées</li>
+          <li>Anti no-show & replanification</li>
+          <li>Signature & handoff</li>
         </ul>
         <div class="ctas">
           <a class="btn btn-secondary" href="#contact" :aria-label="primaryCtaText">

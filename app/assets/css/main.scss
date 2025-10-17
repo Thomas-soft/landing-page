@@ -126,6 +126,14 @@ a:focus-visible {
   border-bottom: 1px dashed rgba(60, 66, 100, 0.35); /* fix: pas d’hex 8 et pas d’arguments nommés */
 }
 
+.hero.section-separator {
+  padding-bottom: 0;
+  border-bottom: 1px dashed rgba(60, 66, 100, 0.35); /* fix: pas d’hex 8 et pas d’arguments nommés */
+  @media screen and (max-width: 768px) {
+    padding-bottom: 5rem;
+  }
+}
+
 .prose {
   padding-top: 4rem;
 }
