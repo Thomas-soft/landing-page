@@ -39,7 +39,7 @@ const vIntersect = {
       <div class="hero__content">
         <h1 id="hero-title">
           <!-- Automatisation d'agences avec une équipe d'agents IA -->
-           Automatisation commercial pour agences
+           Automatisation commerciale pour les agences
         </h1>
         <p class="subtitle">
           <!-- Je mets en place des systèmes d'automatisation commercial avec une équipe d'agents IA.<br/> -->
