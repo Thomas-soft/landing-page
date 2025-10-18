@@ -75,8 +75,9 @@ const vIntersect = {
 
       <div class="hero__media">
         <figure>
+          <!-- /placeholder-hero.webp -->
           <img 
-            src="/placeholder-hero.webp"
+            src="/mee.webp"
             alt="Agent IA intelligent connectant des applications"
             width="600" height="600"
             loading="lazy"

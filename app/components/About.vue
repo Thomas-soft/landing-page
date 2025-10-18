@@ -16,8 +16,9 @@ defineProps<{
 
     <div class="about-content">
       <div class="img-contain">
+        <!-- /mee.webp -->
         <img 
-          src="/mee.webp" 
+          src="/placeholder-hero.webp"
           alt="Photo de Thomas Tofil, freelance en automatisation CRM et agents IA" 
           class="about-photo" 
           width="auto" height="600"
