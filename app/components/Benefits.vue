@@ -14,27 +14,39 @@
 
     <div class="grid">
       <article>
-        <h3>Agences</h3>
-        <ul class="list-unstyled">
-          <li>Prise en charge rapide des prospects (speed-to-lead) et qualification dès l'entrée.</li>
+        <h3>Avant</h3>
+        <ul class="list-unstyled before">
+          <!-- <li>Prise en charge rapide des prospects (speed-to-lead) et qualification dès l'entrée.</li>
           <li>Scalabilité accrue des capacités.</li>
           <li>Gains de temps significatifs.</li>
           <li>Moins de tâches manuelles et répétitives pour les équipes.</li>
           <li>Meilleure organisation des agendas et réduction du no-show.</li>
           <li>Relances automatisées et replanification en un clic après absence.</li>
-          <li>Meilleure visibilité sur les performances commerciales.</li>
+          <li>Meilleure visibilité sur les performances commerciales.</li> -->
+          <li>Prise en charge du lead<br/>4-24 h / dépend des agendas</li>
+          <li>Service client<br/>Réponses en 24-48h</li>
+          <li>No-shows<br/>25-40%</li>
+          <li>Relances<br/>Manuelles ou inexistantes</li>
+          <li>Devis & signatures<br/>Envoi manuel, relance oubliée</li>
+          <li>Suivi & reporting<br/>Excel / CRM basique</li>
         </ul>
       </article>
 
       <article>
-        <h3>Professionnels</h3>
-        <ul class="list-unstyled">
-          <li>Moins de charge mentale au travail</li>
+        <h3>Après</h3>
+        <ul class="list-unstyled after">
+          <!-- <li>Moins de charge mentale au travail</li>
           <li>Meilleure gestion du temps et des priorités</li>
           <li>Collaboration améliorée avec les équipes</li>
           <li>Réduction du stress lié aux tâches administratives</li>
           <li>Plus de temps pour se concentrer sur les tâches à forte valeur ajoutée</li>
-          <li>Meilleure satisfaction au travail</li>
+          <li>Meilleure satisfaction au travail</li> -->
+          <li>Prise en charge du lead<br/>En quelques minutes</li>
+          <li>Service client<br/>Réponses en moins de 5 minutes</li>
+          <li>No-shows<br/>5-10%</li>
+          <li>Relances<br/>Automatisées et personnalisées</li>
+          <li>Devis & signatures<br/>Envoi & relance automatiques</li>
+          <li>Suivi & reporting<br/>Tableaux de bord clairs</li>
         </ul>
       </article>
     </div>
@@ -107,6 +119,13 @@
           font-size: 1.1rem;
           filter: drop-shadow(0 0 6px rgba(139, 92, 246, 0.5));
         }
+      }
+    }
+    ul.before {
+      li::before {
+        content: "✗";
+        color: #ef4444;
+        filter: drop-shadow(0 0 6px rgba(239, 68, 68, 0.5));
       }
     }
   }

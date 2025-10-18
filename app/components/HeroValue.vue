@@ -39,13 +39,17 @@ const vIntersect = {
       <div class="hero__content">
         <h1 id="hero-title">
           <!-- Automatisation d'agences avec une équipe d'agents IA -->
-           Automatisation commerciale pour les agences
+           <!-- Automatisation commerciale pour les agences -->
+            <!-- Automatisation du suivi des différents processus commerciaux -->
+             <!-- Calendly ne suffit pas. L'orchestration fait la différence. -->
+             Consultant en Automatisation Commerciale & IA.
         </h1>
         <p class="subtitle">
           <!-- Je mets en place des systèmes d'automatisation commercial avec une équipe d'agents IA.<br/> -->
-          De la prise de rendez-vous à la signature : relances, génération et envoi de documents, CRM, e-signature.<br/>
+           Calendly/Cal.com gère la prise de rendez-vous, mais l'automatisation complète du suivi commercial fait toute la différence.
+          <!-- De la prise de rendez-vous à la signature : relances, génération et envoi de documents, CRM, e-signature.<br/>
           Le but : répondre en quelques minutes, réduire le no-show, envoyer les bons documents sans délai et maintenir un suivi des prospects impeccable.<br/>
-          Résultat : des prospects pris en charge immédiatement, une expérience fluide qui augmente la satisfaction client, et des signatures plus rapides.
+          Résultat : des prospects pris en charge immédiatement, une expérience fluide qui augmente la satisfaction client, et des signatures plus rapides. -->
         </p>
         <ul class="bullets list-unstyled" role="list">
           <!-- <li>Réduction du no-show : confirmations, rappels et replanification automatique des rendez-vous.</li>
